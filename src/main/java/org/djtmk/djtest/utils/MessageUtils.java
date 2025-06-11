@@ -1,23 +1,23 @@
-package org.djtmk.rollerest.utils;
+package org.djtmk.djtest.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.djtmk.rollerest.RollerTest;
+import org.djtmk.djtest.DJTest;
 
 /**
  * Utility class for handling plugin messages
  */
 public class MessageUtils {
-    private static RollerTest plugin;
+    private static DJTest plugin;
     private static FileConfiguration config;
 
     /**
      * Initialize the MessageUtils with the plugin instance
      * @param instance The plugin instance
      */
-    public static void initialize(RollerTest instance) {
+    public static void initialize(DJTest instance) {
         plugin = instance;
         config = plugin.getConfig();
     }
@@ -63,13 +63,13 @@ public class MessageUtils {
      */
     public static void sendMessage(CommandSender sender, String path, String... replacements) {
         String message = getMessageWithPrefix(path);
-        
+
         for (int i = 0; i < replacements.length; i += 2) {
             if (i + 1 < replacements.length) {
                 message = message.replace(replacements[i], replacements[i + 1]);
             }
         }
-        
+
         sender.sendMessage(message);
     }
 
@@ -111,11 +111,11 @@ public class MessageUtils {
         if (player == null) {
             return null;
         }
-        
+
         if (!hasPermission(player, permission)) {
             return null;
         }
-        
+
         return player;
     }
 }

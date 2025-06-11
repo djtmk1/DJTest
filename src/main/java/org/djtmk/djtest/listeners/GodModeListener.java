@@ -1,11 +1,11 @@
-package org.djtmk.rollerest.listeners;
+package org.djtmk.djtest.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.djtmk.rollerest.commands.GodCommand;
+import org.djtmk.djtest.commands.GodCommand;
 
 /**
  * Listener for god mode events

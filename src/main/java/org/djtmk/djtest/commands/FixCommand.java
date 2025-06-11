@@ -1,4 +1,4 @@
-package org.djtmk.rollerest.commands;
+package org.djtmk.djtest.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.djtmk.rollerest.utils.MessageUtils;
+import org.djtmk.djtest.utils.MessageUtils;
 
 /**
  * Command to repair the item in the player's hand

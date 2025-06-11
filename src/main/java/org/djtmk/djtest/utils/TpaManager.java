@@ -1,9 +1,9 @@
-package org.djtmk.rollerest.utils;
+package org.djtmk.djtest.utils;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
-import org.djtmk.rollerest.RollerTest;
+import org.djtmk.djtest.DJTest;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ import java.util.UUID;
  * Manager for teleport requests
  */
 public class TpaManager {
-    private final RollerTest plugin;
+    private final DJTest plugin;
     private final Map<UUID, UUID> tpaRequests = new HashMap<>(); // target -> sender
     private final Map<UUID, BukkitTask> tpaTimeoutTasks = new HashMap<>();
     private final int timeout;
@@ -22,7 +22,7 @@ public class TpaManager {
      * Constructor for TpaManager
      * @param plugin The plugin instance
      */
-    public TpaManager(RollerTest plugin) {
+    public TpaManager(DJTest plugin) {
         this.plugin = plugin;
         this.timeout = plugin.getConfig().getInt("settings.tpa-timeout", 60);
     }
@@ -36,35 +36,35 @@ public class TpaManager {
     public boolean sendRequest(Player sender, Player target) {
         UUID targetUUID = target.getUniqueId();
         UUID senderUUID = sender.getUniqueId();
-        
+
         // Check if there's already a pending request
         if (tpaRequests.containsKey(targetUUID) && tpaRequests.get(targetUUID).equals(senderUUID)) {
             return false;
         }
-        
+
         // Cancel any existing timeout task
         if (tpaTimeoutTasks.containsKey(targetUUID)) {
             tpaTimeoutTasks.get(targetUUID).cancel();
         }
-        
+
         // Store the request
         tpaRequests.put(targetUUID, senderUUID);
-        
+
         // Schedule a timeout task
         BukkitTask task = Bukkit.getScheduler().runTaskLater(plugin, () -> {
             if (tpaRequests.containsKey(targetUUID) && tpaRequests.get(targetUUID).equals(senderUUID)) {
                 tpaRequests.remove(targetUUID);
                 tpaTimeoutTasks.remove(targetUUID);
-                
+
                 Player senderPlayer = Bukkit.getPlayer(senderUUID);
                 if (senderPlayer != null && senderPlayer.isOnline()) {
                     MessageUtils.sendMessage(senderPlayer, "messages.tpa.request-expired", "%player%", target.getName());
                 }
             }
         }, timeout * 20L); // Convert seconds to ticks
-        
+
         tpaTimeoutTasks.put(targetUUID, task);
-        
+
         return true;
     }
 
@@ -75,21 +75,21 @@ public class TpaManager {
      */
     public Player acceptRequest(Player target) {
         UUID targetUUID = target.getUniqueId();
-        
+
         if (!tpaRequests.containsKey(targetUUID)) {
             return null;
         }
-        
+
         UUID senderUUID = tpaRequests.get(targetUUID);
         Player sender = Bukkit.getPlayer(senderUUID);
-        
+
         // Clean up
         tpaRequests.remove(targetUUID);
         if (tpaTimeoutTasks.containsKey(targetUUID)) {
             tpaTimeoutTasks.get(targetUUID).cancel();
             tpaTimeoutTasks.remove(targetUUID);
         }
-        
+
         return sender;
     }
 
@@ -100,21 +100,21 @@ public class TpaManager {
      */
     public Player denyRequest(Player target) {
         UUID targetUUID = target.getUniqueId();
-        
+
         if (!tpaRequests.containsKey(targetUUID)) {
             return null;
         }
-        
+
         UUID senderUUID = tpaRequests.get(targetUUID);
         Player sender = Bukkit.getPlayer(senderUUID);
-        
+
         // Clean up
         tpaRequests.remove(targetUUID);
         if (tpaTimeoutTasks.containsKey(targetUUID)) {
             tpaTimeoutTasks.get(targetUUID).cancel();
             tpaTimeoutTasks.remove(targetUUID);
         }
-        
+
         return sender;
     }
 
@@ -134,11 +134,11 @@ public class TpaManager {
      */
     public Player getRequestSender(Player target) {
         UUID targetUUID = target.getUniqueId();
-        
+
         if (!tpaRequests.containsKey(targetUUID)) {
             return null;
         }
-        
+
         UUID senderUUID = tpaRequests.get(targetUUID);
         return Bukkit.getPlayer(senderUUID);
     }
@@ -149,7 +149,7 @@ public class TpaManager {
      */
     public void cleanupRequests(Player player) {
         UUID playerUUID = player.getUniqueId();
-        
+
         // Remove requests where the player is the target
         if (tpaRequests.containsKey(playerUUID)) {
             if (tpaTimeoutTasks.containsKey(playerUUID)) {
@@ -158,7 +158,7 @@ public class TpaManager {
             }
             tpaRequests.remove(playerUUID);
         }
-        
+
         // Remove requests where the player is the sender
         tpaRequests.entrySet().removeIf(entry -> {
             if (entry.getValue().equals(playerUUID)) {

@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.djtmk</groupId>
-    <artifactId>RollerTest</artifactId>
+    <artifactId>DJTest</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>RollerTest</name>
+    <name>DJTest</name>
 
     <properties>
         <java.version>21</java.version>

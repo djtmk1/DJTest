@@ -1,13 +1,13 @@
-# RollerTest Configuration
+# DJTest Configuration
 
 # Messages
 messages:
-  prefix: "&7[&bRollerTest&7] "
+  prefix: "&7[&bDJTest&7] "
   no-permission: "&cYou don't have permission to use this command."
   player-only: "&cThis command can only be used by players."
   player-not-found: "&cPlayer not found."
   target-self: "&cYou cannot target yourself with this command."
-  
+
   # Gamemode Command
   gamemode:
     usage: "&cUsage: /gamemode <survival|creative|adventure|spectator> [player]"
@@ -15,7 +15,7 @@ messages:
     changed-other: "&aYou changed &e%player%&a's gamemode to &e%gamemode%&a."
     changed-by-other: "&aYour gamemode has been changed to &e%gamemode%&a by &e%player%&a."
     invalid-gamemode: "&cInvalid gamemode. Use survival, creative, adventure, or spectator."
-  
+
   # God Command
   god:
     enabled-self: "&aGod mode enabled."
@@ -24,24 +24,24 @@ messages:
     disabled-other: "&aGod mode disabled for &e%player%&a."
     enabled-by-other: "&aGod mode has been enabled for you by &e%player%&a."
     disabled-by-other: "&aGod mode has been disabled for you by &e%player%&a."
-  
+
   # OpenInv Command
   openinv:
     usage: "&cUsage: /openinv <player>"
     opened: "&aOpened &e%player%&a's inventory."
-  
+
   # Enderchest Command
   enderchest:
     opened-self: "&aOpened your enderchest."
     opened-other: "&aOpened &e%player%&a's enderchest."
     opened-by-other: "&aYour enderchest has been opened by &e%player%&a."
-  
+
   # Fix Command
   fix:
     success: "&aYour item has been repaired."
     no-item: "&cYou need to hold an item to repair it."
     not-repairable: "&cThis item cannot be repaired."
-  
+
   # TPA Command
   tpa:
     usage: "&cUsage: /tpa <player>"
@@ -56,7 +56,7 @@ messages:
     request-expired: "&cYour teleport request to &e%player%&c has expired."
     already-sent: "&cYou already sent a teleport request to this player."
     teleporting: "&aTeleporting to &e%player%&a..."
-  
+
   # Trash Command
   trash:
     opened: "&aOpened trash inventory."

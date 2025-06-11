@@ -1,14 +1,14 @@
-package org.djtmk.rollerest;
+package org.djtmk.djtest;
 
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.djtmk.rollerest.commands.*;
-import org.djtmk.rollerest.listeners.GodModeListener;
-import org.djtmk.rollerest.listeners.PlayerQuitListener;
-import org.djtmk.rollerest.utils.MessageUtils;
-import org.djtmk.rollerest.utils.TpaManager;
+import org.djtmk.djtest.commands.*;
+import org.djtmk.djtest.listeners.GodModeListener;
+import org.djtmk.djtest.listeners.PlayerQuitListener;
+import org.djtmk.djtest.utils.MessageUtils;
+import org.djtmk.djtest.utils.TpaManager;
 
-public final class RollerTest extends JavaPlugin {
+public final class DJTest extends JavaPlugin {
     private TpaManager tpaManager;
     private GodCommand godCommand;
 
@@ -44,7 +44,7 @@ public final class RollerTest extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new GodModeListener(godCommand), this);
         getServer().getPluginManager().registerEvents(new PlayerQuitListener(tpaManager, godCommand), this);
 
-        getLogger().info("RollerTest has been enabled!");
+        getLogger().info("DJTest has been enabled!");
     }
 
     @Override
@@ -52,6 +52,6 @@ public final class RollerTest extends JavaPlugin {
         // Unregister all listeners
         HandlerList.unregisterAll(this);
 
-        getLogger().info("RollerTest has been disabled!");
+        getLogger().info("DJTest has been disabled!");
     }
 }

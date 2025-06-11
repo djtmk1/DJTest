@@ -1,6 +1,6 @@
-name: RollerTest
+name: DJTest
 version: '1.0'
-main: org.djtmk.rollerest.RollerTest
+main: org.djtmk.djtest.DJTest
 api-version: '1.21'
 authors: [ djtmk ]
 
@@ -9,83 +9,83 @@ commands:
     description: Sets the player to the gamemode specified
     usage: /gamemode <type> [player]
     aliases: [gm]
-    permission: rollertest.gamemode
+    permission: djtest.gamemode
 
   god:
     description: Sets the player into a god mode where they can't take any damage and/or lose hunger
     usage: /god [player]
-    permission: rollertest.god
+    permission: djtest.god
 
   openinv:
     description: Opens the inventory of player and lets you to be able to edit the player's inventory
     usage: /openinv <player>
     aliases: [oi, openinventory]
-    permission: rollertest.openinv
+    permission: djtest.openinv
 
   enderchest:
     description: Opens the ender chest of the player
     usage: /enderchest [player]
     aliases: [ec, echest]
-    permission: rollertest.enderchest
+    permission: djtest.enderchest
 
   fix:
     description: Fixes the item which is in your hand to be full durability
     usage: /fix
     aliases: [repair]
-    permission: rollertest.fix
+    permission: djtest.fix
 
   tpa:
     description: Sends a teleport request to the player
     usage: /tpa <player>
-    permission: rollertest.tpa
+    permission: djtest.tpa
 
   tpaccept:
     description: Accepts a teleport request
     usage: /tpaccept
-    permission: rollertest.tpa
+    permission: djtest.tpa
 
   tpdeny:
     description: Denies a teleport request
     usage: /tpdeny
-    permission: rollertest.tpa
+    permission: djtest.tpa
 
   trash:
     description: Opens a menu which lets you throw away items
     usage: /trash
     aliases: [disposal, bin]
-    permission: rollertest.trash
+    permission: djtest.trash
 
 permissions:
-  rollertest.gamemode:
+  djtest.gamemode:
     description: Allows the player to change gamemodes
     default: op
 
-  rollertest.god:
+  djtest.god:
     description: Allows the player to toggle god mode
     default: op
 
-  rollertest.openinv:
+  djtest.openinv:
     description: Allows the player to open other players' inventories
     default: op
 
-  rollertest.enderchest:
+  djtest.enderchest:
     description: Allows the player to open their own enderchest
     default: true
 
-  rollertest.enderchest.others:
+  djtest.enderchest.others:
     description: Allows the player to open other players' enderchests
     default: op
     children:
-      rollertest.enderchest: true
+      djtest.enderchest: true
 
-  rollertest.fix:
+  djtest.fix:
     description: Allows the player to repair items
     default: op
 
-  rollertest.tpa:
+  djtest.tpa:
     description: Allows the player to use teleport requests
     default: true
 
-  rollertest.trash:
+  djtest.trash:
     description: Allows the player to open the trash inventory
     default: true
