@@ -1,0 +1,68 @@
+# RollerTest Configuration
+
+# Messages
+messages:
+  prefix: "&7[&bRollerTest&7] "
+  no-permission: "&cYou don't have permission to use this command."
+  player-only: "&cThis command can only be used by players."
+  player-not-found: "&cPlayer not found."
+  target-self: "&cYou cannot target yourself with this command."
+  
+  # Gamemode Command
+  gamemode:
+    usage: "&cUsage: /gamemode <survival|creative|adventure|spectator> [player]"
+    changed-self: "&aYour gamemode has been changed to &e%gamemode%&a."
+    changed-other: "&aYou changed &e%player%&a's gamemode to &e%gamemode%&a."
+    changed-by-other: "&aYour gamemode has been changed to &e%gamemode%&a by &e%player%&a."
+    invalid-gamemode: "&cInvalid gamemode. Use survival, creative, adventure, or spectator."
+  
+  # God Command
+  god:
+    enabled-self: "&aGod mode enabled."
+    disabled-self: "&aGod mode disabled."
+    enabled-other: "&aGod mode enabled for &e%player%&a."
+    disabled-other: "&aGod mode disabled for &e%player%&a."
+    enabled-by-other: "&aGod mode has been enabled for you by &e%player%&a."
+    disabled-by-other: "&aGod mode has been disabled for you by &e%player%&a."
+  
+  # OpenInv Command
+  openinv:
+    usage: "&cUsage: /openinv <player>"
+    opened: "&aOpened &e%player%&a's inventory."
+  
+  # Enderchest Command
+  enderchest:
+    opened-self: "&aOpened your enderchest."
+    opened-other: "&aOpened &e%player%&a's enderchest."
+    opened-by-other: "&aYour enderchest has been opened by &e%player%&a."
+  
+  # Fix Command
+  fix:
+    success: "&aYour item has been repaired."
+    no-item: "&cYou need to hold an item to repair it."
+    not-repairable: "&cThis item cannot be repaired."
+  
+  # TPA Command
+  tpa:
+    usage: "&cUsage: /tpa <player>"
+    request-sent: "&aYou sent a teleport request to &e%player%&a."
+    request-received: "&e%player%&a has requested to teleport to you."
+    request-accept-instructions: "&aUse &e/tpaccept&a to accept or &e/tpdeny&a to deny."
+    no-pending-requests: "&cYou don't have any pending teleport requests."
+    request-accepted: "&aYou accepted &e%player%&a's teleport request."
+    request-accepted-sender: "&e%player%&a accepted your teleport request."
+    request-denied: "&aYou denied &e%player%&a's teleport request."
+    request-denied-sender: "&e%player%&a denied your teleport request."
+    request-expired: "&cYour teleport request to &e%player%&c has expired."
+    already-sent: "&cYou already sent a teleport request to this player."
+    teleporting: "&aTeleporting to &e%player%&a..."
+  
+  # Trash Command
+  trash:
+    opened: "&aOpened trash inventory."
+    closed: "&aTrash inventory closed. All items have been deleted."
+
+# Settings
+settings:
+  # TPA request timeout in seconds
+  tpa-timeout: 60

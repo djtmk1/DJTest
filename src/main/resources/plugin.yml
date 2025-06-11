@@ -1,0 +1,91 @@
+name: RollerTest
+version: '1.0'
+main: org.djtmk.rollerest.RollerTest
+api-version: '1.21'
+authors: [ djtmk ]
+
+commands:
+  gamemode:
+    description: Sets the player to the gamemode specified
+    usage: /gamemode <type> [player]
+    aliases: [gm]
+    permission: rollertest.gamemode
+
+  god:
+    description: Sets the player into a god mode where they can't take any damage and/or lose hunger
+    usage: /god [player]
+    permission: rollertest.god
+
+  openinv:
+    description: Opens the inventory of player and lets you to be able to edit the player's inventory
+    usage: /openinv <player>
+    aliases: [oi, openinventory]
+    permission: rollertest.openinv
+
+  enderchest:
+    description: Opens the ender chest of the player
+    usage: /enderchest [player]
+    aliases: [ec, echest]
+    permission: rollertest.enderchest
+
+  fix:
+    description: Fixes the item which is in your hand to be full durability
+    usage: /fix
+    aliases: [repair]
+    permission: rollertest.fix
+
+  tpa:
+    description: Sends a teleport request to the player
+    usage: /tpa <player>
+    permission: rollertest.tpa
+
+  tpaccept:
+    description: Accepts a teleport request
+    usage: /tpaccept
+    permission: rollertest.tpa
+
+  tpdeny:
+    description: Denies a teleport request
+    usage: /tpdeny
+    permission: rollertest.tpa
+
+  trash:
+    description: Opens a menu which lets you throw away items
+    usage: /trash
+    aliases: [disposal, bin]
+    permission: rollertest.trash
+
+permissions:
+  rollertest.gamemode:
+    description: Allows the player to change gamemodes
+    default: op
+
+  rollertest.god:
+    description: Allows the player to toggle god mode
+    default: op
+
+  rollertest.openinv:
+    description: Allows the player to open other players' inventories
+    default: op
+
+  rollertest.enderchest:
+    description: Allows the player to open their own enderchest
+    default: true
+
+  rollertest.enderchest.others:
+    description: Allows the player to open other players' enderchests
+    default: op
+    children:
+      rollertest.enderchest: true
+
+  rollertest.fix:
+    description: Allows the player to repair items
+    default: op
+
+  rollertest.tpa:
+    description: Allows the player to use teleport requests
+    default: true
+
+  rollertest.trash:
+    description: Allows the player to open the trash inventory
+    default: true
